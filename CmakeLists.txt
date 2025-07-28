@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.28)
+project(HelloWorld)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+add_compile_options("/utf-8")
+#set(CMAKE_BUILD_TYPE RelWithDebInfo)
+# 为不同构建配置使用不同输出目录
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${CMAKE_BINARY_DIR}/debug/bin")
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${CMAKE_BINARY_DIR}/release/bin")
+
+set(VTK_DIR "E:/99Software_d/OCCT_Debug/3rdparty/vtk-9.4.1-x64/lib/cmake/vtk-9.4")
+#find_package(VTK REQUIRED)
+find_package(VTK 9.4.1 REQUIRED )
+set(OpenCASCADE_DIR "E:/99Software_d/OCCT_Debug/INSTALL/cmake")
+find_package(OpenCASCADE REQUIRED)
+
+add_subdirectory(sources/h_vtk)
+add_subdirectory(sources/h_qt)
+add_subdirectory(sources/ocaf)
+add_subdirectory(sources/Lesson14_Intf)
+add_subdirectory(sources/Lesson15_compose-XDE)
+add_subdirectory(sources/Lesson17_pmc)
